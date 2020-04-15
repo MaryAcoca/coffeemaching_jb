@@ -31,7 +31,6 @@ class CoffeMachine():
     disposable_cups = 9
   
     def user_buy(self):
-        global money, water, milk, coffee_beans, disposable_cups
         if coffee_choice == '1':
             if CoffeMachine.water >= 250 and CoffeMachine.disposable_cups >= 1 and CoffeMachine.coffee_beans >= 16:
                  print('I have enough resources, making you a coffee!')
@@ -79,7 +78,6 @@ class CoffeMachine():
                 print('Sorry, not enough milk!')
 
     def user_fill(self):
-        global money, water, milk, coffee_beans, disposable_cups
         user_fill_water = int(input('Write how many ml of water do you want to add:'))
         CoffeMachine.water += user_fill_water
         user_fill_milk = int(input('Write how many ml of milk do you want to add:'))
@@ -90,7 +88,6 @@ class CoffeMachine():
         CoffeMachine.disposable_cups += user_fill_disposable_cups
 
     def user_take(self):
-        global water, coffee_beans, disposable_cups, money, milk
         print('I gave you', self.money)
         CoffeMachine.money -= CoffeMachine.money
         
