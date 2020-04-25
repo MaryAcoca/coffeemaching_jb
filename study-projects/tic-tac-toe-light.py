@@ -20,13 +20,12 @@ f"""
 | {line1_spaces} |
 | {line2_spaces} |
 | {line3_spaces} |
----------"""
-)
+---------""")
     
 def input_x():
-    if turn.startswith("XXX") == True:
+    if turn.startswith("XXX"):
         print("X wins")
-    elif turn.endswith("XXX") == True:
+    elif turn.endswith("XXX"):
         print("X wins")
     elif turn[3] == "X":
         if turn[4] == "X":
@@ -61,9 +60,9 @@ def input_x():
         print("Impossible")
 
 def input_o():
-    if turn.startswith("OOO") == True:
+    if turn.startswith("OOO"):
         print("O wins")
-    elif turn.endswith("OOO") == True:
+    elif turn.endswith("OOO"):
         print("O wins")
     elif turn[3] == "O":
         if turn[4] == "O":
@@ -101,17 +100,18 @@ def input_o():
 
 
 while True:
-    if "_" in turn and " " in turn:
+    if '_' in (turn):
         if not input_x() and not input_o():
             print_table()
             print("Game not finished")
             break
-    elif "_" not in turn and " " not in turn:
+    elif '_' not in (turn):
         if not input_x() and not input_o():
             print_table()
             print("Draw")
             break
 
+          
 
            
 
