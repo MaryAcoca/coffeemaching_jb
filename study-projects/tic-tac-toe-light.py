@@ -62,11 +62,27 @@ def draw():
             return("Draw")
 
 while True:
-    if input_x() and input_o():
+    if input_x():
+        print_table()
+        print('X wins')
+        break   
+    
+    elif input_o():
+        print_table()
+        print('O wins')
+        break 
+    
+    elif input_x() and input_o():
         print_table()
         print ('Impossible')
         break
-   
+    
+    elif turn.count("X") - turn.count("O") > 2 or turn.count("O") - turn.count("X"):
+        print_table()
+        print ('Impossible')
+        break       
+
+    
     elif not input_x() and not input_o() and not draw():
         print_table()
         print("Game not finished")
@@ -77,16 +93,8 @@ while True:
         print("Draw")
         break
    
-    elif input_x():
-        print_table()
-        print('X wins')
-        break   
+
     
-    elif input_o():
-        print_table()
-        print('O wins')
-        break 
-          
 
            
 
