@@ -62,17 +62,10 @@ def draw():
             return("Draw")
 
 while True:
-    if input_x():
-        print_table()
-        print('X wins')
-        break   
+    input_x() 
+    input_o()
     
-    elif input_o():
-        print_table()
-        print('O wins')
-        break 
-    
-    elif input_x() and input_o():
+    if input_x() and input_o():
         print_table()
         print ('Impossible')
         break
