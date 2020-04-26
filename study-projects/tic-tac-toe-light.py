@@ -1,11 +1,5 @@
 turn = input("Enter cels:")
  
-
-if turn.count("X") > 5:
-    print("Impossible")
-elif turn.count("O") > 5:
-    print("Impossible")
-
 def print_table():
     line1 = turn [0:3]
     line1_spaces = " ".join(line1)
@@ -21,96 +15,77 @@ f"""
 | {line2_spaces} |
 | {line3_spaces} |
 ---------""")
-    
+
+
+
+
 def input_x():
     if turn.startswith("XXX"):
-        print("X wins")
+        return ("X wins")
     elif turn.endswith("XXX"):
-        print("X wins")
-    elif turn[3] == "X":
-        if turn[4] == "X":
-            if turn[5] == "X":
-                print_table()
-                print("X wins")
-    elif turn[0] == "X":
-        if turn[3] == "X":
-            if turn[6] == "X":
-                print_table()
-                print("X wins")           
-    elif turn[1] == "X":
-        if turn[4] == "X":
-            if turn[7] == "X":
-                print_table()
-                turn("X wins")
-    elif turn[2] == "X":
-        if turn[5] == "X":
-            if turn[8] == "X":
-                print("X wins")
-    elif turn[0] == "X":
-        if turn[4] == "X":
-            if turn[8] == "X":
-                print_table()
-                turn("X wins")
-    elif turn[2] == "X":
-        if turn[4] == "X":
-            if turn[6] == "X":
-                print_table()
-                turn("X wins")
-    elif turn.count("X") > 5:
-        print("Impossible")
+        return ("X wins")
+    elif turn[3] == "X" and turn[4] == "X" and turn[5] == "X":
+        return ("X wins")
+    elif turn[0] == "X" and turn[3] == "X" and turn[6] == "X":
+        return ("X wins")           
+    elif turn[1] == "X" and turn[4] == "X" and turn[7] == "X":
+        return ("X wins")
+    elif turn[2] == "X" and turn[5] == "X" and turn[8] == "X":
+        return ("X wins")   
+    elif turn[0] == "X" and turn[4] == "X" and turn[8] == "X":
+        return ("X wins")
+    elif turn[2] == "X" and turn[4] == "X" and turn[6] == "X":
+        return ("X wins")
+
 
 def input_o():
     if turn.startswith("OOO"):
-        print("O wins")
+        return ("O wins")
     elif turn.endswith("OOO"):
-        print("O wins")
-    elif turn[3] == "O":
-        if turn[4] == "O":
-            if turn[5] == "O":
-               print_table() 
-               print("O wins")
-    elif turn[0] == "O":
-        if turn[3] == "O":
-            if turn[6] == "O":
-               print_table() 
-               print("O wins")
-    elif turn[2] == "O":
-        if turn[5] == "O":
-            if turn[8] == "O":
-                print_table()
-                print("O wins")
-    elif turn[1] == "O":
-        if turn[4] == "O":
-            if turn[7] == "O":
-                print_table()
-                print("O wins")           
-    elif turn[0] == "O":
-        if turn[4] == "O":
-            if turn[8] == "O":
-                print_table()
-                print("O wins")
-    elif turn[2] == "O":
-        if turn[4] == "O":
-            if turn[6] == "O":
-                print_table()
-                print("O wins")
-    elif turn.count("O") > 5:
-        print_table()
-        print("Impossible")
+        return ("O wins")
+    elif turn[3] == "O" and turn[4] == "O" and turn[5] == "O":
+        return ("O wins")
+    elif turn[0] == "O" and turn[3] == "O" and turn[6] == "O":
+        return ("O wins")
+    elif turn[1] == "O" and turn[4] == "O" and turn[7] == "O":
+        return ("O wins")
+    elif turn[2] == "O" and turn[5] == "O" and turn[8] == "O":
+        return ("O wins")
+    elif turn[0] == "O" and turn[4] == "O" and turn[8] == "O":
+        return ("O wins")
+    elif turn[2] == "O" and turn[4] == "O" and turn[6] == "O":
+        return ("O wins")
 
+def draw():
+    if turn.count("X") == 5 and turn.count("O") == 4 or turn.count("X") == 4 and turn.count("O") == 5:
+        if not input_x () and not input_o():
+            return("Draw")
 
 while True:
-    if '_' in (turn):
-        if not input_x() and not input_o():
-            print_table()
-            print("Game not finished")
-            break
-    elif '_' not in (turn):
-        if not input_x() and not input_o():
-            print_table()
-            print("Draw")
-            break
-
+    if input_x() and input_o():
+        print_table()
+        print ('Impossible')
+        break
+   
+    elif not input_x() and not input_o() and not draw():
+        print_table()
+        print("Game not finished")
+        break
+   
+    elif draw():
+        print_table()
+        print("Draw")
+        break
+   
+    elif input_x():
+        print_table()
+        print('X wins')
+        break   
+    
+    elif input_o():
+        print_table()
+        print('O wins')
+        break 
           
 
            
