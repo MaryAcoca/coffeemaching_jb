@@ -11,7 +11,7 @@
 
 # if water >= 200 and milk >= 50 and coffee >= 15:
 #    amount_water = water//200
-#   amount_milk = milk//50
+#    amount_milk = milk//50
 #    amount_coffee = coffee//15
 #    amount_cups = min(amount_water, amount_milk, amount_coffee)
 #    if amount_cups == cups:
