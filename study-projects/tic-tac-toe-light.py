@@ -40,21 +40,21 @@ def input_x():
 
 def input_o():
     if turn.startswith("OOO"):
-        return ("O wins")
+        return ("O Wins")
     elif turn.endswith("OOO"):
-        return ("O wins")
+        return ("O Wins")
     elif turn[3] == "O" and turn[4] == "O" and turn[5] == "O":
-        return ("O wins")
+        return ("O Wins")
     elif turn[0] == "O" and turn[3] == "O" and turn[6] == "O":
-        return ("O wins")
+        return ("O Wins")
     elif turn[1] == "O" and turn[4] == "O" and turn[7] == "O":
-        return ("O wins")
+        return ("O Wins")
     elif turn[2] == "O" and turn[5] == "O" and turn[8] == "O":
-        return ("O wins")
+        return ("O Wins")
     elif turn[0] == "O" and turn[4] == "O" and turn[8] == "O":
-        return ("O wins")
+        return ("O Wins")
     elif turn[2] == "O" and turn[4] == "O" and turn[6] == "O":
-        return ("O wins")
+        return ("O Wins")
 
 def draw():
     if turn.count("X") == 5 and turn.count("O") == 4 or turn.count("X") == 4 and turn.count("O") == 5:
@@ -62,34 +62,57 @@ def draw():
             return("Draw")
 
 while True:
-    if input_x() and input_o():
+    if input_x():
+        if input_o():
+            print_table()
+            print()
+            print ('Impossible')
+            break
+
+        else:
+            print_table()
+            print()
+            print ("X wins")
+            break
+
+    elif input_o():
+        if input_x():
+            print_table()
+            print()
+            print ('Impossible')
+            break
+
+        else:
+            print_table()
+            print()
+            print ("O wins")
+            break
+        
+    elif turn.count("X") - turn.count("O") >= 2:
         print_table()
+        print()
         print ('Impossible')
         break
-   
-    elif not input_x() and not input_o() and not draw():
+
+    elif turn.count("O") - turn.count("X") >= 2:
         print_table()
-        print("Game not finished")
+        print()
+        print ('Impossible')
         break
-   
+
     elif draw():
         print_table()
+        print()
         print("Draw")
         break
-   
-    elif input_x():
+
+    elif not input_x() and not input_o() and not draw():
         print_table()
-        print('X wins')
-        break   
+        print()
+        print("Game not finished")
+        break
     
-    elif input_o():
-        print_table()
-        print('O wins')
-        break 
-          
+   
 
-           
-
-
-
-
+   
+  
