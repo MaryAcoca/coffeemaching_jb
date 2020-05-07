@@ -11,6 +11,7 @@ All incorrectly spelled words in the order of their appearance in the sentence. 
 Sample Input 1:
 
 `srutinize is to examene closely and minutely`
+
 Sample Output 1:
 
 `srutinize`
