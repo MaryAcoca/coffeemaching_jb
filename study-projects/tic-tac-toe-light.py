@@ -1,4 +1,5 @@
-turn = input("Enter cels:")
+
+
  
 def print_table():
     line1 = turn [0:3]
@@ -16,7 +17,9 @@ f"""
 | {line3_spaces} |
 ---------""")
 
-
+def coordinates_check():
+    if 1 1:
+        if 
 
 
 def input_x():
@@ -62,6 +65,11 @@ def draw():
             return("Draw")
 
 while True:
+    turn = input("Enter cels:")
+    print_table()
+    enter_the_coordinates = input("Enter the coordinates:")
+
+
     if input_x():
         if input_o():
             print_table()
@@ -76,6 +84,7 @@ while True:
             break
 
     elif input_o():
+        print_table()
         if input_x():
             print_table()
             print()
