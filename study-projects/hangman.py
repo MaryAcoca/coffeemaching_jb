@@ -7,16 +7,18 @@ random_word = random.choice(word_list)
 
 max_guesses = 8
 guess = 0
+hint = '-'*len(random_word)
 while guess < max_guesses:
     guess +=1
-    hint = '-'*len(random_word)
-    user_word = 
-
-
-
-hint = random_word[0:3]+'-'*(len(random_word)-3)
-user_word = input("Guess the word" + hint + ":")
-if user_word == random_word:
-    print("You survived!")
-else:
-    print("You are hanged!")
+    print(' '.join(str(elem) for elem in hint))
+    letter = input("Input a letter:")
+    for i in range(0, len(random_word)):
+        if letter == random_word[i]:
+            hint[i] = letter
+        else:
+            print("No such letter in the word")
+print("""
+Thanks for playing!
+We'll see how well you did in the next stage
+""")
+    
